@@ -51,6 +51,9 @@ def play_game():
     x = int(input("Choose the first whole number of your range: "))
     y = int(input("Choose your second whole number: "))
     attempts = int(input("How many attempts would you like? "))
+    if attempts <= 0:
+        print("You can't have that many attempts.")
+        exit(0)
     g = ""
     while True:
         z = generate_number(x, y)
@@ -70,7 +73,7 @@ def play_game():
             else:
                 attempts -= 1
                 print("You have " + str(attempts) + " attempts.")
-            if attempts == 0:
+            if attempts <= 0:
                 print("You lost.")
                 print("The answer was " + str(z) + "." )
                 exit(0)
